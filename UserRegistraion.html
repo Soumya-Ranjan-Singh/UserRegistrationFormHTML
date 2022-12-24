@@ -71,6 +71,17 @@
                         textError.textContent = "";
                     else textError.textContent = "Name is incorrect";
                 });
+
+            // <!--UC2 : Email validation (As a User need to enter a valid Email)-->    
+                const email = document.querySelector('#email');
+                const emailError = document.querySelector('.email-error');
+                email.addEventListener('input', function() {
+                    let EMAIL_REGEX_TYPE_1 = RegExp('^[A-Za-z0-9.+-]*[a-zA-Z0-9]+[@]{1}[b][r][i][d][g][e][l][a][b][z]+[.][a-z]+$');
+                    let EMAIL_REGEX_TYPE_2 = RegExp('^[A-Za-z0-9.+-_]*[a-zA-Z0-9]+[@][b][r][i][d][g][e][l][a][b][z]+[.][a-z]+[.]?[a-z]{2}$');
+                    if (EMAIL_REGEX_TYPE_1.test(email.value) || EMAIL_REGEX_TYPE_2.test(email.value))
+                        emailError.textContent = "";
+                    else emailError.textContent = "Email is incorrect";
+                });
         </script>
             <!--javaScript End-->
     </body>
