@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=de vice-width, initial-scale=1.0">
-        <title>Form Page</title>
+        <title>User Form Page</title>
     </head>
 
     <body>
@@ -91,6 +91,27 @@
                     if (pattern_PHONE_NUMBER.test(tel.value))
                         telError.textContent = "";
                     else telError.textContent = "mobile number is incorrect";
+                });
+
+            // <!--UC4 and UC 5: As a User need to follow pre-defined Password rules. Rule1 – minimum 8 Characters-->
+                // Rule1 – minimum 8 Characters,
+                // Rule2 – Should have at least 1 Upper Case,
+                // Rule3 – Should have at least 1 numeric number in the password,
+                // Rule4 – Has exactly 1 Special Character
+                const password = document.querySelector('#pwd');
+                const passwordError = document.querySelector('.password-error');
+                password.addEventListener('input', function() {
+                    const pattern_PASSWORD = RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[-+(){}_!@#$%^&*., ?]){8,}.*$');
+                    if (pattern_PASSWORD.test(password.value))
+                        passwordError.textContent = "";
+                    else passwordError.textContent = "password must contains (min 8 Characters,1 Upper Case, 1 numeric number,1 Special Character)";
+                });
+                
+            // Salary
+                const salary = document.querySelector('#salary');
+                const output = document.querySelector('.salary-output');
+                salary.addEventListener('input', function() {
+                    output.textContent = salary.value;
                 });
         </script>
             <!--javaScript End-->
