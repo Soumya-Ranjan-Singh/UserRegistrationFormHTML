@@ -82,6 +82,16 @@
                         emailError.textContent = "";
                     else emailError.textContent = "Email is incorrect";
                 });
+
+            // <!--UC3 : mobile number validation (As a User need to follow pre-defined Mobile Format)-->
+                const tel = document.querySelector('#tel');
+                const telError = document.querySelector('.tel-error');
+                tel.addEventListener('input', function() {
+                    const pattern_PHONE_NUMBER = RegExp('^(91 )[5-9][0-9]{9}$');
+                    if (pattern_PHONE_NUMBER.test(tel.value))
+                        telError.textContent = "";
+                    else telError.textContent = "mobile number is incorrect";
+                });
         </script>
             <!--javaScript End-->
     </body>
